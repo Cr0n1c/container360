@@ -1,4 +1,5 @@
 import hashlib
+import uvicorn
 
 from fastapi import Depends, FastAPI, Request, HTTPException
 from fastapi.responses import HTMLResponse
@@ -60,3 +61,5 @@ async def scan(image: schema.ImageScanModel, db: Session=Depends(database.get_db
         'status': status
     }
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

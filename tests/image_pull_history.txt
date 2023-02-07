@@ -1,0 +1,149 @@
+latest: Pulling from bitnami/nginx
+Digest: sha256:86296d93de4f680ab44cc01b535cb711128971e1108859d0197f0f55aded7a27
+Status: Image is up to date for bitnami/nginx:latest
+docker.io/bitnami/nginx:latest
+latest: Pulling from bitwarden/nginx
+Digest: sha256:f8812846d0872dcb953a764ffec5cd894793326813c3769e1811c1747c57e325
+Status: Image is up to date for bitwarden/nginx:latest
+docker.io/bitwarden/nginx:latest
+latest: Pulling from centos/nginx-110-centos7
+Digest: sha256:3f86b235015dd8e4b9331effa9d69a403cde35b168b740fad01e2a40301bb6e5
+Status: Image is up to date for centos/nginx-110-centos7:latest
+docker.io/centos/nginx-110-centos7:latest
+0.3: Pulling from circleci/nginx
+Image docker.io/circleci/nginx:0.3 uses outdated schema1 manifest format. Please upgrade to a schema2 image for better future compatibility. More information at https://docs.docker.com/registry/spec/deprecated-schema-v1/
+e5ad7970bc69: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+2767943aa23d: Already exists
+5a40bd63d577: Already exists
+a3ed95caeb02: Already exists
+9dbf1493839a: Already exists
+d83ac9507937: Already exists
+1512e0f1740f: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+fda49c4f4753: Already exists
+967062d5e315: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+a3ed95caeb02: Already exists
+Digest: sha256:283c7b3425f09f1b6a49f325796ad42780e348e53c9fc9857c0a77228de53b66
+Status: Image is up to date for circleci/nginx:0.3
+docker.io/circleci/nginx:0.3
+latest: Pulling from clearlinux/nginx
+Digest: sha256:97edcd44d11804972690ef5fcb4b9718a4698eaa5fe0bbaa1046b1d6f8e271a1
+Status: Image is up to date for clearlinux/nginx:latest
+docker.io/clearlinux/nginx:latest
+1.5.2: Pulling from continuumio/nginx-ingress-ws
+Digest: sha256:0f00e0eb3ae401f3c6120502fdc930e53dcb620afde0d9ca56d50b36162dd3ad
+Status: Image is up to date for continuumio/nginx-ingress-ws:1.5.2
+docker.io/continuumio/nginx-ingress-ws:1.5.2
+latest: Pulling from corpusops/nginx
+Digest: sha256:13d1d6b945c1707eb8e4b4a02eb563befd9f95dc5dc5a6b8e59aeeeb30d008d3
+Status: Image is up to date for corpusops/nginx:latest
+docker.io/corpusops/nginx:latest
+latest: Pulling from docksal/nginx
+Digest: sha256:938c802f96822d21b89019bf151894d224fbfc86d46a727fb2c48b7e29dcabc5
+Status: Image is up to date for docksal/nginx:latest
+docker.io/docksal/nginx:latest
+latest: Pulling from droidwiki/nginx
+Digest: sha256:5a2e48f3a6c68302827345f8b6beaaa32f5a0cf7783cc8c4a56040325ad5cadd
+Status: Image is up to date for droidwiki/nginx:latest
+docker.io/droidwiki/nginx:latest
+v0.29.1: Pulling from drud/nginx-base
+Digest: sha256:04e53cf12c798b931975cae6a4729cad0cb218a3a5a92392198c3027061ec7dd
+Status: Image is up to date for drud/nginx-base:v0.29.1
+docker.io/drud/nginx-base:v0.29.1
+4.5.0-4: Pulling from gluufederation/nginx
+latest: Pulling from intel/nginx
+Digest: sha256:8944bf7ba1b5c64a2b1de70ea315a4acaad520d6b155a35bb43a6eb4eea3a98d
+Status: Image is up to date for intel/nginx:latest
+docker.io/intel/nginx:latest
+latest: Pulling from kasmweb/nginx
+Digest: sha256:03957e8cace460d39b1e5709cb5282ce68e36a50dcef6c289d12924cff5685bb
+Status: Image is up to date for kasmweb/nginx:latest
+docker.io/kasmweb/nginx:latest
+latest: Pulling from lancachenet/ubuntu-nginx
+Digest: sha256:c638ac9c094fd44d28bbe0e2eaecb0d3a2f22ca68e07a9c323e2a112332a192a
+Status: Image is up to date for lancachenet/ubuntu-nginx:latest
+docker.io/lancachenet/ubuntu-nginx:latest
+latest: Pulling from linuxserver/nginx
+Digest: sha256:232a262e2db91315d784b64c145d08037d0cb473135cb649356fd2cd2b78339f
+Status: Image is up to date for linuxserver/nginx:latest
+docker.io/linuxserver/nginx:latest
+latest: Pulling from mailu/nginx
+latest: Pulling from library/nginx
+Digest: sha256:c54fb26749e49dc2df77c6155e8b5f0f78b781b7f0eadd96ecfabdcdfa5b1ec4
+Status: Image is up to date for nginx:latest
+docker.io/library/nginx:latest
+latest-ubi: Pulling from nginxcontrib/nginx
+Digest: sha256:a7305f44bbd73be9b5a234f0298b0f918cbffc400ad869558d196e0adc67c899
+Status: Image is up to date for nginxcontrib/nginx:latest-ubi
+docker.io/nginxcontrib/nginx:latest-ubi
+latest: Pulling from nginxinc/nginx-unprivileged
+Digest: sha256:12201ead07a4c8f5e40832669e90b0b76cd4601914d448b1353594edc050efa2
+Status: Image is up to date for nginxinc/nginx-unprivileged:latest
+docker.io/nginxinc/nginx-unprivileged:latest
+latest: Pulling from nginxpro/nginx
+Digest: sha256:7c529ccbd728e3232fb2ca6ba0d35d839bb1b6630f1156672afc85a34b9f4d9b
+Status: Image is up to date for nginxpro/nginx:latest
+docker.io/nginxpro/nginx:latest
+latest: Pulling from nginxpro/nginxpro
+Digest: sha256:7c529ccbd728e3232fb2ca6ba0d35d839bb1b6630f1156672afc85a34b9f4d9b
+Status: Image is up to date for nginxpro/nginxpro:latest
+docker.io/nginxpro/nginxpro:latest
+3.9.0.0-1569.83e26ae3: Pulling from objectscale/nginx
+Digest: sha256:276d91185fd5a1d3179ddc599711bef007ea565c7ac1185ffb49b40379335478
+Status: Image is up to date for objectscale/nginx:3.9.0.0-1569.83e26ae3
+docker.io/objectscale/nginx:3.9.0.0-1569.83e26ae3
+alpine: Pulling from okteto/nginx
+Digest: sha256:03fcaeb9cfa85c32a421602d7d8e1aec4491bcd9f553070fbab5e45efcbb76f4
+Status: Image is up to date for okteto/nginx:alpine
+docker.io/okteto/nginx:alpine
+latest: Pulling from privatebin/nginx-fpm-alpine
+Digest: sha256:58571ad6bd6b1532cbd1e89bb4cb58d83fd6a10f678e2f28f2f62b6e55d9a3d3
+Status: Image is up to date for privatebin/nginx-fpm-alpine:latest
+docker.io/privatebin/nginx-fpm-alpine:latest
+ingress-nginx-1.5.1-hardened2-amd64: Pulling from rancher/nginx
+Digest: sha256:ab9b662a628358552615c22e9318ed2996e8010175158796d8747bfce27ccac4
+Status: Image is up to date for rancher/nginx:ingress-nginx-1.5.1-hardened2-amd64
+docker.io/rancher/nginx:ingress-nginx-1.5.1-hardened2-amd64
+latest: Pulling from rapidfort/nginx
+Digest: sha256:c37d18888caeeacd4c91e7d6467bf13592117bc6e4183562c640ce85b915787f
+Status: Image is up to date for rapidfort/nginx:latest
+docker.io/rapidfort/nginx:latest
+latest: Pulling from rasa/nginx
+Digest: sha256:00d18842b07c2c262882bc1d3b89ce4b1ad4c4de9eda414dcd6b8d21294bb825
+Status: Image is up to date for rasa/nginx:latest
+docker.io/rasa/nginx:latest
+latest: Pulling from semoss/nginx2
+Digest: sha256:f84a0d46f958262c4edbef4b13fc61a05d11226a21661383e6e11c5736f6b5f5
+Status: Image is up to date for semoss/nginx2:latest
+docker.io/semoss/nginx2:latest
+latest: Pulling from treehouses/nginx
+Digest: sha256:a41c051c6aa233a34d95fe95227de08a82e78fdb7cfa186b20d48ee53fbc56ce
+Status: Image is up to date for treehouses/nginx:latest
+docker.io/treehouses/nginx:latest
+latest: Pulling from ubuntu/nginx
+Digest: sha256:c7cb61c12b142ac3e80c7322ab959801e76269d714c46f05b66373c59cd5a195
+Status: Image is up to date for ubuntu/nginx:latest
+docker.io/ubuntu/nginx:latest
+latest: Pulling from uselagoon/nginx-drupal
+Digest: sha256:e92c8379d5ebbc71dc1d2db5868723ec3b0b9f6c8d63b5b9ceb444b18212821b
+Status: Image is up to date for uselagoon/nginx-drupal:latest
+docker.io/uselagoon/nginx-drupal:latest
+1.11.5-patched: Pulling from vmware/nginx
+Digest: sha256:07cd4b73ec64e12581399c4ab7c523553955946a02bba2be715c4f02b97bdf86
+Status: Image is up to date for vmware/nginx:1.11.5-patched
+docker.io/vmware/nginx:1.11.5-patched
+latest: Pulling from webdevops/nginx
+Digest: sha256:8cb595ec0a5c3a24ec40d91b8c15508348c71db691c11114a7d891608f08af35
+Status: Image is up to date for webdevops/nginx:latest
+docker.io/webdevops/nginx:latest
+latest: Pulling from wodby/nginx
+Digest: sha256:1c402c1409904c2114e4f494629ab2d0efa2a6682d503af0f57313986edb69c4
+Status: Image is up to date for wodby/nginx:latest
+docker.io/wodby/nginx:latest
