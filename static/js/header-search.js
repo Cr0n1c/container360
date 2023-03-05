@@ -8,5 +8,5 @@ document.getElementById("header-container-search").addEventListener("keydown", f
 function submitFunction(){
     var input = document.getElementById("header-container-search").value;
     var formatted = input.replace(":", "|");
-    window.location.href = "/image?image_uuid=" + formatted;
+    window.location.href = "/image?image_name=" + formatted;
 }

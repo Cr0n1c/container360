@@ -63,5 +63,12 @@ class ImageHistory(Base):
     size = Column(String)
     comment = Column(String)
 
+class ThreatModel(Base):
+    __tablename__ = "threat_model_events"
+
+    id = Column(Integer, primary_key=True, index=True)
+    image_uuid = Column(String, index=True)
+    technique = Column(String, index=True)
+    event = Column(String, index=True)
 
 

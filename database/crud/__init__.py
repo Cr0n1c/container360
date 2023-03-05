@@ -13,6 +13,7 @@ from sqlalchemy.exc import IntegrityError
 import database 
 import database.models as models
 import database.schema as schema
+from database.crud.threat_intel import MitreScan as threat_scanner
 
 def get_scan_status(image_uuid: str, db: Session=Depends(database.get_db)) -> bool:
     if db.query(models.ScanResults).filter(models.ScanResults.image_uuid == image_uuid).first():
@@ -23,7 +24,7 @@ def get_scan_status(image_uuid: str, db: Session=Depends(database.get_db)) -> bo
         return 'not scanned'
 
 
-async def create_scan(image: schema.ImageScanModel, image_uuid: str, db: Session=Depends(database.get_db)) -> None:
+def create_scan(image: schema.ImageScanModel, image_uuid: str, db: Session=Depends(database.get_db)) -> bool:
     scan = database.models.ScanQueue(image_uuid=image_uuid, 
                                      image_name=image.image_name, 
                                      image_tag=image.image_tag
@@ -32,7 +33,7 @@ async def create_scan(image: schema.ImageScanModel, image_uuid: str, db: Session
     db.add(scan)
     db.commit()
 
-    start_scan(image, image_uuid, db)
+    return start_scan(image, image_uuid, db)
 
 
 def get_image_data(image_uuid: str, db: Session=Depends(database.get_db)):
@@ -56,15 +57,20 @@ def get_image_data(image_uuid: str, db: Session=Depends(database.get_db)):
 def start_scan(image: schema.ImageScanModel, image_uuid: str, db: Session=Depends(database.get_db)) -> None:
     client = docker.from_env()
     image_path = ':'.join([image.image_name, image.image_tag]) if image.image_tag else image.image_name
-    container = client.containers.run(image_path, detach=True)
+    try:
+        container = client.containers.run(image_path, detach=True)
+    except docker.errors.ImageNotFound:
+        return False
 
     if not set_running_processes(container, image_uuid, db):
         container = client.containers.run(image_path, 'sleep 500', detach=True)
     
     set_network_connections(container, image_uuid, db)
     set_image_history(image_path, image_uuid, db)
+    threat_scanner(container, image_path, image_uuid, db)
     cleanup_from_scan(container)
     complete_scan(image, image_uuid, db)
+    return True
 
 def cleanup_from_scan(container) -> None:
     container.remove(v=True, force=True)
@@ -220,5 +226,4 @@ def set_image_history(image: str, image_uuid: str, db: Session=Depends(database.
         except IntegrityError:
             db.flush()
             db.rollback()
-
 
