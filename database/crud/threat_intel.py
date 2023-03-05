@@ -12,8 +12,8 @@ class MitreScan:
         self.image_path = image_path
         self.image_uuid = image_uuid
         self.db = db
-        self.default_user_root = True if self.__run_container_process("whoami") == "root" else False
-        self.package_manager_installed = True if self.__run_container_process("which apt-get") else False
+        self.default_user_root = True if self.__run_container_process("whoami", force_output=True).strip() == "root" else False
+        self.package_manager_installed = True if self.__run_container_process("which apt-get", force_output=True) else False
         self.run_scan()
 
     def run_scan(self):
@@ -38,14 +38,17 @@ class MitreScan:
         else:
             return True
 
-    def __run_container_process(self, process=str) -> bool:
+    def __run_container_process(self, process=str, force_output=False) -> bool:
         try:
             results = self.container.exec_run(cmd=process, demux=True, privileged=True, tty=True)
         except docker.errors.APIError as e:
             print(e)
             return False
+        
+        if results.exit_code == 0 or force_output:
+            return results.output[0].decode('utf-8') if results.output[0] is not None else None
         else:
-            return results
+            return False
 
     def __initial_assess(self) -> bool:
         # Valid Accounts: Unabled to programmatically determine at this moment.
@@ -78,14 +81,18 @@ class MitreScan:
             self.db_add("persistence", "Detected cron installed")
             self.db_add("privilege-escalation", "Detected cron installed")
 
-        for row in results:
-            self.db_add("scheduled-task", f"Detected cron job: {row}")
+            for row in results:
+                self.db_add("execution", f"Detected cron job: {row}")
 
         if self.default_user_root:
             if self.__run_container_process("which crontab"):
-                self.db_add("scheduled-task", "Default user 'root' can add cron jobs")
+                self.db_add("execution", "Default user 'root' can add cron jobs")
+                self.db_add("persistence", "Default user 'root' can add cron jobs and then use that to persist")
+                self.db_add("privilege-escalation", "Default user 'root' can add cron jobs and then use them to elevate privileges")
             elif self.package_manager_installed:
-                self.db_add("scheduled-task", "Default user 'root' can install cron using 'apt-get' as it is installed")
+                self.db_add("execution", "Default user 'root' can install cron using a package manager as it is installed")
+                self.db_add("persistence", "Default user 'root' can install cron with a package manager add cron jobs and then use that to persist")
+                self.db_add("privilege-escalation", "Default user 'root' can install cron with a package manager and then add cron jobs and then use them to elevate privileges")
 
         return True
 
@@ -116,6 +123,7 @@ class MitreScan:
         # Impair Defenses and Indicator Removal	Masquerading
         if self.__run_container_process("touch file.txt"):
             self.db_add("defense-evasion", "Detected ability to create and modify files")
+            self.db_add("defense-evasion", "Detected ability to create and modify files")
         	
         return True
 
@@ -131,16 +139,16 @@ class MitreScan:
 
         # Network Service Discovery	
         if self.package_manager_installed and self.default_user_root:
-            self.db_add("network-service-discovery", "Package Manager detected and default user is 'root', can install network scanning tools at will")
+            self.db_add("discovery", "Package Manager detected and default user is 'root', can install network scanning tools at will")
 
         if self.__run_container_process("which wget"):
-            self.db_add("network-service-discovery", "Detected wget which allows user to download any network scanning app and run it")
+            self.db_add("discovery", "Detected wget which allows user to download any network scanning app and run it")
 
         if self.__run_container_process("which curl"):
-            self.db_add("network-service-discovery", "Detected curl which allows user to download any network scanning app and run it")
+            self.db_add("discovery", "Detected curl which allows user to download any network scanning app and run it")
 
         if self.__run_container_process("which fetch"):
-            self.db_add("network-service-discovery", "Detected fetch which allows user to download any network scanning app and run it")
+            self.db_add("discovery", "Detected fetch which allows user to download any network scanning app and run it")
 
         return True
     

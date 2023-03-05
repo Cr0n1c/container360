@@ -25,7 +25,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    return templates.TemplateResponse("search.html", {"request": request})
+    return templates.TemplateResponse("search-image.html", {"request": request})
 
 @app.get("/image/search", response_class=HTMLResponse)
 async def get_image_web_search(request: Request):
@@ -34,8 +34,14 @@ async def get_image_web_search(request: Request):
 @app.get("/image", response_class=HTMLResponse)
 async def get_image_web(image_name: str, request: Request, db: Session=Depends(database.get_db)):
     results = get_image(image_name, db)
+    image_uuid = hashlib.sha1(image_name.encode('utf-8')).hexdigest()
+    events = crud.get_image_events(image_uuid, db)
+    threat_vectors = []
+    for event in events:
+        if event.technique not in threat_vectors:
+            threat_vectors.append(event.technique)
     if results:
-        return templates.TemplateResponse("image.html", {'request': request, 'data': results } )
+        return templates.TemplateResponse("image.html", {'request': request, 'data': results, 'events': events, 'vectors': threat_vectors} )
     else:
         raise HTTPException(status_code=404, detail="Image UUID not found")
 

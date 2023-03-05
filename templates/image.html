@@ -151,32 +151,32 @@
                   </div>
                   <br>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-info">Initial Access</button>
-                    <button type="button" class="btn bg-gradient-info">Execution</button>
-                    <button type="button" class="btn bg-gradient-info">Persistence</button>
-                    <button type="button" class="btn bg-gradient-info">Privilege Escalation</button>
-                    <button type="button" class="btn bg-gradient-info">Defense Evasion</button>
-                    <button type="button" class="btn bg-gradient-info">Credential Access</button>  
-                    <button type="button" class="btn bg-gradient-info">Discovery</button>
-                    <button type="button" class="btn bg-gradient-info">Lateral Movement</button>
-                    <button type="button" class="btn bg-gradient-info">Impact</button>  
+                    <button type="button" class="btn bg-gradient-{% if 'initial-access' in vectors%}danger{% else %}success{% endif %}">Initial Access</button>
+                    <button type="button" class="btn bg-gradient-{% if 'execution' in vectors%}danger{% else %}success{% endif %}">Execution</button>
+                    <button type="button" class="btn bg-gradient-{% if 'persistence' in vectors%}danger{% else %}success{% endif %}">Persistence</button>
+                    <button type="button" class="btn bg-gradient-{% if 'privilege-escalation' in vectors%}danger{% else %}success{% endif %}">Privilege Escalation</button>
+                    <button type="button" class="btn bg-gradient-{% if 'defense-evasion' in vectors%}danger{% else %}success{% endif %}">Defense Evasion</button>
+                    <button type="button" class="btn bg-gradient-{% if 'credential-access' in vectors%}danger{% else %}success{% endif %}">Credential Access</button>  
+                    <button type="button" class="btn bg-gradient-{% if 'discovery' in vectors%}danger{% else %}success{% endif %}">Discovery</button>
+                    <button type="button" class="btn bg-gradient-{% if 'lateral-movement' in vectors%}danger{% else %}success{% endif %}">Lateral Movement</button>
+                    <button type="button" class="btn bg-gradient-{% if 'impact' in vectors%}danger{% else %}success{% endif %}">Impact</button>  
                   </div>
                 </div>
                 <div class="table-responsive">
                   <table class="table table-flush" id="container-mitre-logs">
                     <thead class="thead-light">
                       <tr>
-                        <th>Tactic</th>
                         <th>Technique</th>
-                        <th>Summary</th>
+                        <th>Event</th>
                       </tr>
                     </thead>
                     <tbody>
+                      {% for event in events %}
                       <tr>
-                        <td class="text-sm font-weight-normal"></td>
-                        <td class="text-sm font-weight-normal"></td>
-                        <td class="text-sm font-weight-normal"></td>
+                        <td class="text-sm font-weight-normal">{{ event.technique }}</td>
+                        <td class="text-sm font-weight-normal">{{ event.event }}</td>
                       </tr>
+                      {% endfor %}
                     </tbody>
                   </table>
                 </div>

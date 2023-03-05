@@ -35,6 +35,13 @@ def create_scan(image: schema.ImageScanModel, image_uuid: str, db: Session=Depen
 
     return start_scan(image, image_uuid, db)
 
+def get_image_events(image_uuid: str, db: Session=Depends(database.get_db)):
+    events = db.query(models.ThreatModel).filter(models.ThreatModel.image_uuid == image_uuid).all()
+    if not events:
+        return []
+
+    return events
+
 
 def get_image_data(image_uuid: str, db: Session=Depends(database.get_db)):
     image = db.query(models.ScanResults).filter(models.ScanResults.image_uuid == image_uuid).first()
